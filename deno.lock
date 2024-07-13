@@ -2,12 +2,17 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@hono/hono@^4.4.13": "jsr:@hono/hono@4.4.13",
       "jsr:@std/assert": "jsr:@std/assert@0.225.2",
       "jsr:@std/internal@^0.225.1": "jsr:@std/internal@0.225.1",
+      "npm:create-hono@latest": "npm:create-hono@0.10.0",
       "npm:prisma": "npm:prisma@5.16.2",
       "npm:prisma@5.16.2": "npm:prisma@5.16.2"
     },
     "jsr": {
+      "@hono/hono@4.4.13": {
+        "integrity": "bd8a736b7e77c6d285c186beb37526fcb0497f48b759d508e595464b5f2ffd5c"
+      },
       "@std/assert@0.225.2": {
         "integrity": "6fd566c3ea01654d29c2b633298b7fc7599716336233852eb87e9843658fa192",
         "dependencies": [
@@ -50,6 +55,10 @@
           "@prisma/debug": "@prisma/debug@5.16.2"
         }
       },
+      "create-hono@0.10.0": {
+        "integrity": "sha512-MI3ik9GF6mFCtzaUoU5dsQ8RMpfjqsc3dAS2QtmC9GeFFNJCssLTdiIuNs7ESUTSg8LoDhvepKm1lFWMqQwVcw==",
+        "dependencies": {}
+      },
       "prisma@5.16.2": {
         "integrity": "sha512-rFV/xoBR2hBGGlu4LPLQd4U8WVA+tSAmYyFWGPRVfj+xg7N4kiZV4lSk38htSpF+/IuHKzlrbh4SFk8Z18cI8A==",
         "dependencies": {
@@ -60,6 +69,9 @@
   },
   "remote": {},
   "workspace": {
+    "dependencies": [
+      "jsr:@hono/hono@^4.4.13"
+    ],
     "packageJson": {
       "dependencies": [
         "npm:@prisma/client@5.16.2",

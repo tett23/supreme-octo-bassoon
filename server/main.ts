@@ -1,9 +1,8 @@
 import { Hono } from "hono";
+import { routes } from "./routes/mod.ts";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+routes(app);
 
 Deno.serve(app.fetch);
