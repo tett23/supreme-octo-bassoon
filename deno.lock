@@ -4,7 +4,8 @@
     "specifiers": {
       "jsr:@std/assert": "jsr:@std/assert@0.225.2",
       "jsr:@std/internal@^0.225.1": "jsr:@std/internal@0.225.1",
-      "npm:prisma": "npm:prisma@5.16.2"
+      "npm:prisma": "npm:prisma@5.16.2",
+      "npm:prisma@5.16.2": "npm:prisma@5.16.2"
     },
     "jsr": {
       "@std/assert@0.225.2": {
@@ -57,5 +58,13 @@
       }
     }
   },
-  "remote": {}
+  "remote": {},
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@prisma/client@5.16.2",
+        "npm:prisma@5.16.2"
+      ]
+    }
+  }
 }
