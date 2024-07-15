@@ -4,7 +4,7 @@ import { routes as staticRoutes } from "./server/routes/static.ts";
 
 const app = new Hono();
 
-routes(app);
 staticRoutes(app);
+routes(app);
 
 Deno.serve(app.fetch);

@@ -1,0 +1,22 @@
+{
+  "tasks": {
+    "dev": "yarn vite",
+    "watch": "yarn vite build --watch",
+    "build": "yarn vite build",
+    "preview": "yarn vite preview",
+    "serve": "deno run --allow-net --allow-read https://deno.land/std@0.157.0/http/file_server.ts dist/"
+  },
+  "imports": {
+    "@sqlite.org/sqlite-wasm": "npm:@sqlite.org/sqlite-wasm@^3.41.2",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.1",
+    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.0",
+    "esbuild": "npm:esbuild@^0.23.0",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "vite": "npm:vite@^5.3.3",
+    "vite-plugin-pwa": "npm:vite-plugin-pwa@^0.20.0",
+    "workbox-core": "npm:workbox-core@^7.1.0",
+    "workbox-precaching": "npm:workbox-precaching@^7.1.0",
+    "workbox-routing": "npm:workbox-routing@^7.1.0"
+  }
+}

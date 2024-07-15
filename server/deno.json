@@ -1,13 +1,10 @@
 {
+  "nodeModulesDir": false,
   "imports": {
     "@hono/node-server": "npm:@hono/node-server@^1.12.0",
     "hono": "jsr:@hono/hono@^4.4.13"
   },
   "tasks": {
     "start": "deno run --allow-net main.ts"
-  },
-  "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "hono/jsx"
   }
 }
