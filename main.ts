@@ -9,7 +9,6 @@ import { PrismaClient } from "@prisma/client";
 import { argv, exit } from "node:process";
 
 const dev = new Command("dev").action(() => {
-  console.log("dev");
   const app = new Hono();
 
   staticRoutes(app);
@@ -32,7 +31,6 @@ const build = new Command("build").option("-p, --path", "build path", "./")
 
       const prisma = new PrismaClient();
       await Promise.all(files.map(([slug, content]) => {
-        console.log(slug);
         return prisma.page.upsert({
           where: { slug },
           update: { content },
@@ -46,5 +44,4 @@ const build = new Command("build").option("-p, --path", "build path", "./")
 const program = new Command();
 program.addCommand(dev);
 program.addCommand(build);
-// console.log(Deno.args);
 program.parse();
