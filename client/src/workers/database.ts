@@ -1,10 +1,6 @@
 import sqlite3InitModule, { type Database } from "@sqlite.org/sqlite-wasm";
 
-async function* databaseGenerator(): AsyncGenerator<
-  import("file:///Users/tett23/Library/Caches/deno/npm/registry.npmjs.org/@sqlite.org/sqlite-wasm/3.46.0-build2/index").Database,
-  void,
-  unknown
-> {
+async function* databaseGenerator(): AsyncGenerator<Database, void, unknown> {
   const sqlite3 = await sqlite3InitModule();
   const arrayBuffer = await (await fetch("/database")).arrayBuffer();
   const db = new sqlite3.oo1.DB();
@@ -59,7 +55,7 @@ async function database(): Promise<Database> {
   return (await databaseInstance.next()).value;
 }
 
-self.addEventListener("connect", async (event) => {
+self.addEventLigetDb"connect", async (event) => {
   console.log("Database worker connected");
   const port = (() => {
     if (("ports" in event && Array.isArray(event.ports))) {
@@ -68,7 +64,7 @@ self.addEventListener("connect", async (event) => {
       throw new Error("No ports found");
     }
   })();
-  const db = await database();
+  const db=(await db());
 
   port.onmessage = async (e) => {
     const { type, payload } = e.data;

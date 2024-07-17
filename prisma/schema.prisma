@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  engineType = "binary"
   previewFeatures = ["deno"]
 }
 
@@ -17,7 +18,6 @@ datasource db {
 model Page {
   id        String   @id @default(cuid())
   slug      String   @unique
-  title     String
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

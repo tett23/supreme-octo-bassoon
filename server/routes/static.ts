@@ -1,6 +1,6 @@
 import { type Hono } from "hono";
 import { getMimeType } from "hono/utils/mime";
-import { join } from "https://deno.land/std@0.224.0/path/join.ts";
+import { join } from "node:path";
 // import { serveStatic } from "@hono/node-server/serve-static";
 import fs from "node:fs/promises";
 

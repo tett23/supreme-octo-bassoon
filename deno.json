@@ -1,6 +1,8 @@
 {
   "workspace": ["server", "client"],
+  "nodeModulesDir": true,
   "tasks": {
+    "prisma:generate": "bun prisma generate",
     "dev": "deno run --watch --allow-net --allow-read main.ts"
   },
   "compilerOptions": {
@@ -10,10 +12,10 @@
   },
   "imports": {
     "@hono/node-server": "npm:@hono/node-server@^1.12.0",
-    "@libsql/client": "npm:@libsql/client@^0.7.0",
-    "@prisma/adapter-libsql": "npm:@prisma/adapter-libsql@^5.16.2",
-    "@prisma/driver-adapter-utils": "npm:@prisma/driver-adapter-utils@^5.16.2",
-    "@prisma/query-engine-wasm": "npm:@prisma/query-engine-wasm@^0.6.1",
-    "hono": "jsr:@hono/hono@^4.4.13"
+    "@prisma/client": "npm:@prisma/client",
+    "commander": "npm:commander@^12.1.0",
+    "glob": "npm:glob@^11.0.0",
+    "hono": "jsr:@hono/hono@^4.4.13",
+    "prisma": "npm:prisma@^5.16.2"
   }
 }

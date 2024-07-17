@@ -7,14 +7,10 @@ import DatabaseWorker from "./workers/database.ts?sharedworker";
 const databaseWorker: SharedWorker = DatabaseWorker();
 databaseWorker.port.start();
 console.log(databaseWorker);
-databaseWorker.port.postMessage({ type: "connect" });
 databaseWorker.port.postMessage({ type: "get" });
 databaseWorker.port.onmessage = (e) => {
   console.log(e.data);
 };
-
-(async () => {
-})();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
