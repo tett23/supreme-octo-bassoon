@@ -43,4 +43,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["@sqlite.org/sqlite-wasm", "@prisma/query-engine-wasm"],
   },
+  build: {
+    sourcemap: true,
+  },
 });

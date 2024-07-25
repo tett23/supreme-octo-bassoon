@@ -20,5 +20,4 @@ model Page {
   slug      String   @unique
   content   String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

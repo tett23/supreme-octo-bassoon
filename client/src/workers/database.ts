@@ -17,34 +17,6 @@ async function* databaseGenerator(): AsyncGenerator<Database, void, unknown> {
   );
   db.checkRc(rc);
 
-  console.log(db);
-  db.exec({
-    sql: `
-      INSERT INTO Page (
-        id,
-        slug,
-        title,
-        content,
-        updatedAt
-      )
-      VALUES (
-        $id,
-        $slug,
-        $title,
-        $content,
-        $updatedAt
-      )
-  `,
-    bind: {
-      "$id": "home",
-      "$slug": "home",
-      "$title": "Home",
-      "$content": "Welcome to the home page.",
-      "$updatedAt": new Date().toISOString(),
-    },
-  });
-  console.log(db.exec({ sql: "select * from Page;", rowMode: "array" }));
-
   while (true) {
     yield db;
   }
@@ -52,11 +24,10 @@ async function* databaseGenerator(): AsyncGenerator<Database, void, unknown> {
 
 const databaseInstance = databaseGenerator();
 async function database(): Promise<Database> {
-  return (await databaseInstance.next()).value;
+  return (await databaseInstance.next()).value as Database;
 }
 
-self.addEventLigetDb"connect", async (event) => {
-  console.log("Database worker connected");
+self.addEventListener("connect", async (event) => {
   const port = (() => {
     if (("ports" in event && Array.isArray(event.ports))) {
       return event.ports[0];
@@ -64,29 +35,30 @@ self.addEventLigetDb"connect", async (event) => {
       throw new Error("No ports found");
     }
   })();
-  const db=(await db());
+  const db = await database();
 
-  port.onmessage = async (e) => {
-    const { type, payload } = e.data;
-
+  port.onmessage = (
+    { data: { id, type, payload } }: {
+      data: { id: number; type: "select"; payload: Record<string, string> };
+    },
+  ) => {
     switch (type) {
-      case "get":
+      case "select": {
         port.postMessage({
-          type,
-          payload: db.exec({ sql: "select * from Page;", rowMode: "array" }),
+          id,
+          // payload: JSON.stringify(db.exec({
+          //   sql: "select * from Page;",
+          //   rowMode: "object",
+          //   returnValue: "resultRows",
+          // })),
+          payload: db.exec({
+            sql: "select * from Page;",
+            rowMode: "object",
+            returnValue: "resultRows",
+          }),
         });
         break;
-      case "set":
-        port.postMessage({ type });
-        break;
-      case "remove":
-        port.postMessage({ type });
-        break;
-      case "clear":
-        port.postMessage({ type });
-        break;
+      }
     }
   };
 });
-
-export default {};

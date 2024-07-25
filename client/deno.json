@@ -3,7 +3,7 @@
     "dev": "yarn vite",
     "watch": "yarn vite build --watch",
     "build": "yarn vite build",
-    "preview": "yarn vite preview",
+    "preview": "bun vite preview",
     "serve": "deno run --allow-net --allow-read https://deno.land/std@0.157.0/http/file_server.ts dist/"
   },
   "imports": {
@@ -11,8 +11,12 @@
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.1",
     "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.0",
     "esbuild": "npm:esbuild@^0.23.0",
+    "jotai": "npm:jotai@^2.9.0",
     "react": "npm:react@^18.3.1",
     "react-dom": "npm:react-dom@^18.3.1",
+    "react-router": "npm:react-router@^6.25.0",
+    "react-router-dom": "npm:react-router-dom@^6.25.0",
+    "swr": "npm:swr@^2.2.5",
     "vite": "npm:vite@^5.3.3",
     "vite-plugin-pwa": "npm:vite-plugin-pwa@^0.20.0",
     "workbox-core": "npm:workbox-core@^7.1.0",

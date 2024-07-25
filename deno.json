@@ -2,17 +2,18 @@
   "workspace": ["server", "client"],
   "nodeModulesDir": true,
   "tasks": {
-    "prisma:generate": "bun prisma generate",
-    "dev": "deno run --watch --allow-net --allow-read main.ts"
+    "prisma:generate": "yarn prisma generate",
+    "dev": "deno run --watch --allow-net --allow-read --allow-env --allow-sys main.ts dev dev"
   },
   "compilerOptions": {
     "lib": ["deno.window", "ESNext", "DOM", "WebWorker"],
-    "jsx": "precompile",
-    "jsxImportSource": "hono/jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
   },
   "imports": {
     "@hono/node-server": "npm:@hono/node-server@^1.12.0",
-    "@prisma/client": "npm:@prisma/client",
+    "@prisma/client": "./node_modules/@prisma/client",
     "commander": "npm:commander@^12.1.0",
     "glob": "npm:glob@^11.0.0",
     "hono": "jsr:@hono/hono@^4.4.13",
