@@ -4103,7 +4103,8 @@
           "npm:vite@^5.3.3",
           "npm:workbox-core@^7.1.0",
           "npm:workbox-precaching@^7.1.0",
-          "npm:workbox-routing@^7.1.0"
+          "npm:workbox-routing@^7.1.0",
+          "npm:wouter@^3.3.1"
         ],
         "packageJson": {
           "dependencies": [
@@ -4115,7 +4116,6 @@
             "npm:@vitejs/plugin-react@^4.2.1",
             "npm:jotai@^2.9.0",
             "npm:react-dom@18.3.1",
-            "npm:react-router-dom@^6.25.0",
             "npm:react@18.3.1",
             "npm:swr@^2.2.5",
             "npm:typescript@^5.2.2",
@@ -4124,7 +4124,8 @@
             "npm:workbox-core@^7.1.0",
             "npm:workbox-precaching@^7.1.0",
             "npm:workbox-routing@^7.1.0",
-            "npm:workbox-strategies@^7.1.0"
+            "npm:workbox-strategies@^7.1.0",
+            "npm:wouter@^3.3.1"
           ]
         }
       },

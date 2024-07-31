@@ -1,6 +1,6 @@
 {
   "workspace": ["server", "client"],
-  "nodeModulesDir": true,
+  "nodeModulesDir": false,
   "tasks": {
     "prisma:generate": "yarn prisma generate",
     "dev": "deno run --watch --allow-net --allow-read --allow-env --allow-sys main.ts dev dev"
